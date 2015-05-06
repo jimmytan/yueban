@@ -17,7 +17,7 @@ class Trip (models.Model):
     picture = models.TextField(blank = True)
 
     info = models.TextField(blank = True)
-    owner = models.ForeignKey(User)
+    #owner = models.ForeignKey(User)
 
     class Meta:
         ordering = ('created',)
@@ -27,12 +27,12 @@ class User (models.Model):
     userName = models.CharField(max_length= 200)
     password = models.CharField(max_length= 200)
     picture = models.TextField()
-    email = models.CharField(max_length= 200)
+    email = models.EmailField(blank=True)
     info = models.TextField()
     gender = models.CharField(max_length=1, choices=(('F','F'),('M', 'M')))
     age = models.SmallIntegerField(blank=True)
     province = models.CharField(max_length= 200, blank=True)
     country = models.CharField(max_length= 200, default='China')
-    city = models.CharField(max_length= 200, blank=true)
+    city = models.CharField(max_length= 200, blank=True)
 
 
