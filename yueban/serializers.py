@@ -12,6 +12,7 @@ class TripSerializer(serializers.ModelSerializer):
                     'fromCity', 'startingTime', 'endingTime', 'info')
         read_only_fields = ('id',)
 
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
