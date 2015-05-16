@@ -27,11 +27,13 @@ class TripListCreateView(ListCreateAPIView):
 
 
 class UserListCreateView(ListCreateAPIView):
-    ##model = User
+    model = User
     serializer_class = UserSerializer
     queryset = User.objects.all()
+
 
 class UserDetailView(RetrieveUpdateDestroyAPIView):
     model = User
     serializer_class = UserSerializer
+    queryset = User.objects.filter()
     print 2
