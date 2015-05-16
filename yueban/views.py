@@ -1,7 +1,8 @@
 from distutils.text_file import TextFile
 from django_filters import FilterSet
 from django_filters.filters import NumberFilter, CharFilter
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.viewsets import ModelViewSet
 
 from yueban.models import Trip, User
 
@@ -26,6 +27,11 @@ class TripListCreateView(ListCreateAPIView):
 
 
 class UserListCreateView(ListCreateAPIView):
+    ##model = User
+    serializer_class = UserSerializer
+    queryset = User.objects.all()
+
+class UserDetailView(RetrieveUpdateDestroyAPIView):
     model = User
     serializer_class = UserSerializer
-
+    print 2
